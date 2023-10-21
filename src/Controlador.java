@@ -68,13 +68,13 @@ public class Controlador {
             while ((linea = br.readLine()) != null) {
                 String[] columnas = linea.split(",");
                 for (String dato : columnas) {
-                    if (dato.equals("Pantalones")) {
+                    if (dato.equalsIgnoreCase("Pantalones")) {
                         contadorPantalones++;
-                    } else if (dato.equals("Blusa")) {
+                    } else if (dato.equalsIgnoreCase("Blusa")) {
                         contadorBlusa++;
-                    } else if (dato.equals("Camisa")) {
+                    } else if (dato.equalsIgnoreCase("Camisa")) {
                         contadorCamisa++;
-                    } else if (dato.equals("Collar")) {
+                    } else if (dato.equalsIgnoreCase("Collar")) {
                         contadorCollar++;
                     }
                 }
