@@ -1,0 +1,2 @@
+id_producto,nombre,cantidad_disponible,cantidad_vendidos,estado,precio,categoria,talla,tipo,color,material
+1,Pantalon para tiendas,10,10,vendido,1000.0,Pantalones,M,Lona,null,null
