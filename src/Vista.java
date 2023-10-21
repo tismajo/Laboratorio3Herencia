@@ -7,9 +7,9 @@ public class Vista {
     public void mostrarMenu() {
             while (true) {
                 c.crearVerificarCSV();
-                System.out.println("M E N Ú");
+                System.out.println("\nM E N Ú");
                 System.out.println("Ingresa el número de opción: ");
-                System.out.println("1. Ingresar nuevo ítem.\n2. Buscar por ID.");
+                System.out.println("1. Ingresar nuevo ítem.\n2. Buscar por ID.\n3. Listar Productos \n0. Salir.");
                 int opcion = scn.nextInt();
                 switch (opcion) {
                     case 1:
@@ -53,8 +53,9 @@ public class Vista {
                     c.buscarProducto(idProducto);
                         break;
                     case 3:
+                    c.listarProductos();
                         break;
-                    case 4:
+                    case 0:
                         System.exit(0);
                         break;
                     default:

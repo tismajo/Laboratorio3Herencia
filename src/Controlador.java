@@ -58,7 +58,35 @@ public class Controlador {
     }
 
     public void listarProductos(){
+        int contadorPantalones = 0;
+        int contadorBlusa = 0;
+        int contadorCamisa = 0;
+        int contadorCollar = 0;
 
+        try (BufferedReader br = new BufferedReader(new FileReader("inventarioTienda.csv"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] columnas = linea.split(",");
+                for (String dato : columnas) {
+                    if (dato.equals("Pantalones")) {
+                        contadorPantalones++;
+                    } else if (dato.equals("Blusa")) {
+                        contadorBlusa++;
+                    } else if (dato.equals("Camisa")) {
+                        contadorCamisa++;
+                    } else if (dato.equals("Collar")) {
+                        contadorCollar++;
+                    }
+                }
+            }
+            System.out.println("Listado de items:");
+            System.out.println("Pantalones: " + contadorPantalones);
+            System.out.println("Blusa: " + contadorBlusa);
+            System.out.println("Camisa: " + contadorCamisa);
+            System.out.println("Collar: " + contadorCollar);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo CSV: " + e.getMessage());
+        }
     }
 
     public void ventasTienda(){
