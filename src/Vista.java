@@ -9,7 +9,7 @@ public class Vista {
                 c.crearVerificarCSV();
                 System.out.println("\nM E N Ú");
                 System.out.println("Ingresa el número de opción: ");
-                System.out.println("1. Ingresar nuevo ítem.\n2. Buscar por ID.\n3. Listar Productos \n0. Salir.");
+                System.out.println("1. Ingresar nuevo ítem.\n2. Buscar por ID.\n3. Listar Productos \n4. Ver ventas por categoría\n0. Salir.");
                 int opcion = scn.nextInt();
                 switch (opcion) {
                     case 1:
@@ -55,6 +55,8 @@ public class Vista {
                     case 3:
                     c.listarProductos();
                         break;
+                    case 4:
+                    c.ventasTienda();
                     case 0:
                         System.exit(0);
                         break;

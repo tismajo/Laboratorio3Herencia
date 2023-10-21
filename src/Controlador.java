@@ -90,6 +90,21 @@ public class Controlador {
     }
 
     public void ventasTienda(){
-
+        try (BufferedReader br = new BufferedReader(new FileReader("inventarioTienda.csv"))) {
+            String linea;
+            int columna4 = 0;
+            int columna6 = 0;
+            while ((linea = br.readLine()) != null) {
+                String[] columnas = linea.split(",");
+                if (columnas.length >= 6) {
+                    columna4 += Integer.parseInt(columnas[3]);
+                    columna6 += Integer.parseInt(columnas[5]);
+                }
+            }
+            int resultado = columna4 * columna6;
+            System.out.println("Resultado de la multiplicación: " + resultado);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo CSV: " + e.getMessage());
+        }
     }
 }
