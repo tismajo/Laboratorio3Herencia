@@ -1,5 +1,9 @@
 public class App {
+    /**
+     * @author María José Girón Isidro - 23559
+     */
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        Vista v = new Vista();
+        v.mostrarMenu();
     }
 }
