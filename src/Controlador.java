@@ -90,19 +90,34 @@ public class Controlador {
     }
 
     public void ventasTienda(){
+        double ventasPantalones = 0;
+        double ventasBlusa = 0;
+        double ventasCamisa = 0;
+        double ventasCollar = 0;
+    
         try (BufferedReader br = new BufferedReader(new FileReader("inventarioTienda.csv"))) {
             String linea;
-            int columna4 = 0;
-            int columna6 = 0;
             while ((linea = br.readLine()) != null) {
                 String[] columnas = linea.split(",");
-                if (columnas.length >= 6) {
-                    columna4 += Integer.parseInt(columnas[3]);
-                    columna6 += Integer.parseInt(columnas[5]);
+                for (String dato : columnas) {
+                    if (dato.equalsIgnoreCase("Pantalones")) {
+                        ventasPantalones += Double.parseDouble(columnas[2]) * Double.parseDouble(columnas[5]);
+                    } else if (dato.equalsIgnoreCase("Blusa")) {
+                        ventasBlusa += Double.parseDouble(columnas[2]) * Double.parseDouble(columnas[5]);
+                    } else if (dato.equalsIgnoreCase("Camisa")) {
+                        ventasCamisa += Integer.parseInt(columnas[2]) * Integer.parseInt(columnas[5]);
+                    } else if (dato.equalsIgnoreCase("Collar")){
+                        ventasCollar += Integer.parseInt(columnas[2]) * Integer.parseInt(columnas[5]);
+                    }
                 }
             }
-            int resultado = columna4 * columna6;
-            System.out.println("Resultado de la multiplicación: " + resultado);
+            System.out.println("Listado de items:");
+            System.out.println("Pantalones: " + ventasPantalones);
+            System.out.println("Blusa: " + ventasBlusa);
+            System.out.println("Camisa: " + ventasCamisa);
+            System.out.println("Collares: " + ventasCollar);
+            double total = ventasPantalones + ventasBlusa + ventasCamisa + ventasCollar;
+            System.out.println("Total: "+ total);
         } catch (IOException e) {
             System.out.println("Error al leer el archivo CSV: " + e.getMessage());
         }
